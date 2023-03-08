@@ -10,7 +10,7 @@ import java.time.Duration;
 public class LoginTests extends BaseTest {
 
     @Test
-    public static void LoginEmptyEmailPasswordTest () throws InterruptedException {
+    public static void LoginEmptyEmailPasswordTest() throws InterruptedException {
         // Simple comment
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -27,22 +27,22 @@ public class LoginTests extends BaseTest {
     public static void LoginInvalidEmail() {
         //Login Not Existing Email:
         //Precondition: Chrome browser should be opened DONE
-           // declare driver
+        // declare driver
         //Step1. Open koel login page DONE
-           // tell driver to load koel page
+        // tell driver to load koel page
         //Step2. Enter Not Existing email
-           // find email field
-           // click into email field
-           // enter invalid email inside email field
+        // find email field
+        // click into email field
+        // enter invalid email inside email field
         //Step3. Enter Correct password
-           // find password field
-           // click into password field
-           // enter anything
+        // find password field
+        // click into password field
+        // enter anything
         //Step4. Click Login button
-           // find the login button
-           // click the login button
+        // find the login button
+        // click the login button
         //Expected result: User should stay on login page
-           // assert the present of email field
+        // assert the present of email field
 
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -110,5 +110,34 @@ public class LoginTests extends BaseTest {
         Assert.assertTrue(avatar.isDisplayed());
 
         driver.quit();
+    }
+
+    rivate WebDriver
+    driver;
+
+    @FindBy(id = "username")
+    private WebElement usernameInput;
+
+    @FindBy(id = "password")
+    private WebElement passwordInput;
+
+    @FindBy(id = "login-button")
+    private WebElement loginButton;
+
+    public LoginPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
+
+    public void enterUsername(String username) {
+        usernameInput.sendKeys(username);
+    }
+
+    public void enterPassword(String password) {
+        passwordInput.sendKeys(password);
+    }
+
+    public void clickLoginButton() {
+        loginButton.click();
     }
 }
