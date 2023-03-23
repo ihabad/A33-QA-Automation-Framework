@@ -21,7 +21,6 @@ import java.util.HashMap;
 
 
 public class BaseTest {
-
     public WebDriver driver;
     public ThreadLocal<WebDriver> threadDriver;
     public String url;
